@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global AI Teaching | धोजा शिंदे</title>
+    <!-- Font Awesome 6 (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Mukta (excellent for Marathi) -->
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #1b3b4f, #2b5c6f);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Mukta', sans-serif;
+            padding: 20px;
+        }
+
+        /* main card */
+        .card {
+            max-width: 860px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(2px);
+            border-radius: 48px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border-top: 8px solid #f39c12;
+            overflow: hidden;
+        }
+
+        .card-content {
+            padding: 30px 30px 25px;
+        }
+
+        /* header */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #b6490e;
+            line-height: 1.2;
+            text-shadow: 2px 2px 0 #ffe3b6;
+        }
+
+        .subtitle {
+            font-size: 1.6rem;
+            color: #4e2e1b;
+            background: #fff3e0;
+            display: inline-block;
+            padding: 6px 25px;
+            border-radius: 50px;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        /* greeting */
+        .greeting {
+            background: #e8f0fe;
+            border-left: 10px solid #2980b9;
+            padding: 18px 22px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            color: #1c4e7c;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .greeting i {
+            font-size: 2.5rem;
+            color: #f39c12;
+        }
+
+        /* course cards */
+        .course-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .course-item {
+            border-radius: 28px;
+            padding: 22px 25px;
+            background: #ffffff;
+            box-shadow: 0 18px 30px -12px rgba(0,0,0,0.2);
+            border-left: 8px solid;
+            transition: transform 0.2s;
+        }
+
+        .course-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .student-course {
+            border-left-color: #1976d2;
+            background: linear-gradient(105deg, #fff, #f3f9ff);
+        }
+
+        .farmer-course {
+            border-left-color: #2e7d32;
+            background: linear-gradient(105deg, #fff, #f1f9f0);
+        }
+
+        .course-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed #ccc;
+            padding-bottom: 10px;
+        }
+
+        .course-header i {
+            font-size: 2.5rem;
+        }
+
+        .student-course .course-header i { color: #1976d2; }
+        .farmer-course .course-header i { color: #2e7d32; }
+
+        .course-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .course-header h2 span {
+            display: block;
+            font-size: 1.2rem;
+            color: #5e6f7d;
+            font-weight: 500;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .feature-list li {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: #2d3f4b;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .student-course .feature-list li i { color: #1976d2; }
+        .farmer-course .feature-list li i { color: #2e7d32; }
+
+        .fee-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .fee-badge {
+            background: #ffd699;
+            color: #b6490e;
+            padding: 10px 20px;
+            border-radius: 60px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            border: 2px solid #f39c12;
+        }
+
+        /* info strip (time & students) */
+        .info-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            background: #fff3e0;
+            padding: 16px 22px;
+            border-radius: 60px;
+            margin: 25px 0;
+            border: 2px solid #ffb26e;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4a2c1a;
+        }
+
+        .info-item i {
+            font-size: 2rem;
+            color: #e67e22;
+        }
+
+        /* offline message */
+        .offline-box {
+            background: #e2f0e8;
+            padding: 16px 22px;
+            border-radius: 50px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border: 2px solid #5fa8d3;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #064663;
+        }
+
+        .offline-box i {
+            font-size: 2.2rem;
+            color: #b85b1e;
+        }
+
+        /* mentor section */
+        .mentor-box {
+            background: #e6f3e6;
+            padding: 20px;
+            border-radius: 40px;
+            text-align: center;
+            margin: 25px 0;
+            border: 2px solid #7fb07f;
+        }
+
+        .mentor-box h3 {
+            color: #1f6d1f;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .mentor-box h3 i {
+            font-size: 2.2rem;
+        }
+
+        /* action buttons */
+        .action-row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 25px 0 20px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 16px 20px;
+            border-radius: 60px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            transition: 0.2s;
+            border: none;
+        }
+
+        .btn:active { transform: scale(0.98); }
+
+        .btn-wa {
+            background: #25D366;
+            border: 2px solid #128C7E;
+        }
+        .btn-wa:hover { background: #20b859; }
+
+        .btn-reg {
+            background: #ff8c42;
+            border: 2px solid #c5621e;
+        }
+        .btn-reg:hover { background: #f57c2c; }
+
+        /* address */
+        .address {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #d5e6ff;
+            padding: 16px 22px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            color: #0b1e37;
+            border: 2px dotted #2370c9;
+            margin-top: 10px;
+        }
+
+        .address i {
+            font-size: 2rem;
+            color: #c7421f;
+        }
+
+        /* footer */
+        .footer {
+            text-align: center;
+            padding: 16px;
+            background: #1e4a5f;
+            color: #ecf0f1;
+            font-size: 1rem;
+            border-top: 4px solid #f39c12;
+        }
+
+        .footer i { color: #f7ca7a; margin: 0 4px; }
+
+        /* responsive */
+        @media (max-width: 600px) {
+            .card-content { padding: 20px; }
+            .title { font-size: 2.4rem; }
+            .subtitle { font-size: 1.2rem; }
+            .greeting { flex-direction: column; text-align: center; }
+            .info-strip { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-content">
+            <!-- header -->
+            <div class="header">
+                <div class="title">Global AI Teaching, धोजा शिंदे</div>
+                <div class="subtitle">स्मार्ट युगाची स्मार्ट सुरुवात आता आपल्या गावातच!</div>
+            </div>
+
+            <!-- greeting -->
+            <div class="greeting">
+                <i class="fas fa-handshake"></i>
+                <span>नमस्कार! आता मोबाईलचा वापर फक्त टाईमपाससाठी नाही, तर प्रगतीसाठी करा! आपल्या गावात पहिल्यांदाच सुरू होत आहे 'Artificial Intelligence (AI)' चे प्रॉक्टिकल क्लासेस.</span>
+            </div>
+
+            <!-- courses -->
+            <div class="course-grid">
+                <!-- student card -->
+                <div class="course-item student-course">
+                    <div class="course-header">
+                        <i class="fas fa-user-graduate"></i>
+                        <h2>१. विद्यार्थ्यांसाठी <span>(वय १२ ते १५ वर्ष)</span></h2>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> कठीण विषय आणि गणिताचे प्रश्न AI च्या मदतीने कसे सोडवायचे?</li>
+                        <li><i class="fas fa-check-circle"></i> गृहपाठ (Homework) आणि प्रोजेक्ट्ससाठी स्मार्ट रिसर्च.</li>
+                        <li><i class="fas fa-check-circle"></i> डिजिटल युगात स्वतःला अपडेट कसे ठेवायचे?</li>
+                    </ul>
+                    <div class="fee-row">
+                        <div class="fee-badge">फी: फक्त २०० रुपये प्रति महिना</div>
+                    </div>
+                </div>
+
+                <!-- farmer card -->
+                <div class="course-item farmer-course">
+                    <div class="course-header">
+                        <i class="fas fa-tractor"></i>
+                        <h2>२. शेतकरी, व्यावसायिक आणि ज्येष्ठांसाठी</h2>
+                    </div>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-seedling"></i> शेतकरी लक्षण (उदा. पिकांची रोग, खत व्यवस्थापन) AI ला विचारून अचूक उपाय शोधणे.</li>
+                        <li><i class="fas fa-store"></i> आपला व्यवसाय ऑनलाईन कसा वाढवायचा?</li>
+                        <li><i class="fas fa-clock"></i> दैनंदिन जीवनातील कामे सोपी करण्यासाठी AI चा वापर.</li>
+                    </ul>
+                    <div class="fee-row">
+                        <div class="fee-badge">फी: फक्त ३०० रुपये प्रति महिना</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- timing & student count (info strip) -->
+            <div class="info-strip">
+                <div class="info-item"><i class="fas fa-calendar-week"></i> कालावधी: दर आठवड्यातून ३ दिवस( रविवार, सोमवार, मंगलवार (संध्याकाळी 6ते 8)</div>
+                <div class="info-item"><i class="fas fa-star"></i> कमी पैशा जास्त ज्ञान</div>
+            </div>
+
+            <!-- offline message -->
+            <div class="offline-box">
+                <i class="fas fa-door-open"></i>
+                <span>५. सर्व (ऑफलाइन) घेतले जातात. गावातील पहिला AI उपक्रम.</span>
+            </div>
+
+            <!-- mentor -->
+            <div class="mentor-box">
+                <h3><i class="fas fa-chalkboard-teacher"></i> मार्गदर्शक: आदित्य शिंदे</h3>
+            </div>
+
+            <!-- action buttons -->
+            <div class="action-row">
+                <a href="https://wa.me/917666536380?text=नमस्कार! AI क्लासेसबद्दल माहिती हवी आहे." class="btn btn-wa" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="https://forms.gle/Eht3upmFnUvtGkN19" class="btn btn-reg" target="_blank">
+                    <i class="fas fa-edit"></i> नोंदणी करा
+                </a>
+            </div>
+
+            <!-- address -->
+            <div class="address">
+                <i class="fas fa-map-location-dot"></i>
+                <span>७. पत्ता: धोजा शिंदे (वैयक्तिक रूपमा, तपशीलसाठी संपर्क साधा)</span>
+            </div>
+        </div>
+
+        <!-- footer (optional, keeps design consistent) -->
+        <div class="footer">
+            <i class="fas fa-seedling"></i> धोजा शिंदे AI उपक्रम <i class="fas fa-star"></i>
+        </div>
+    </div>
+
+    <!-- No complex JS needed; pure static information. -->
+</body>
+</html>
